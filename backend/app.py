@@ -51,6 +51,13 @@ async def process_data(
     # Call the appropriate model handler with the parameters and query string
     return handler(params, query or "")
 
+
+# make a /hi endpoint
+@app.get("/hi")
+async def hi():
+    return {"message": "Hello World"}
+
+
 def main():
     uvicorn.run(app, host="0.0.0.0", port=8000, reload=True)
 
